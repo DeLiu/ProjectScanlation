@@ -8,5 +8,6 @@ namespace Client_App
 {
     class TCP_Interface
     {
+
     }
 }
