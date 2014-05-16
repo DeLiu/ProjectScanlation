@@ -11,10 +11,20 @@ namespace Server_App
     class SQLInterface
     {
 
-
-
-        public void GetData()
+        public void SelectData()
         {
+            SqlConnection conn = new SqlConnection(@"Data Source=ACER\SQLEXPRESS;Initial Catalog=testdb;     
+                                                          Integrated Security=True");
+            conn.Open();
+            SqlCommand _command = new SqlCommand("SELECT Firstname, Adress FROM Customer", conn);
+            SqlDataReader read = _command.ExecuteReader();
+            while (read.Read())
+            {
+                Console.WriteLine("{1}", "{0}", read.GetString(0) + " " + read.GetString(1));
+            }
+            read.Close();
+            conn.Close();
+
 
           
 
