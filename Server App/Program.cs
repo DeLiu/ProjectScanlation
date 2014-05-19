@@ -9,13 +9,11 @@ namespace Server_App
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             SQLInterface sqlinterface = new SQLInterface();
             sqlinterface.SelectData();
-                 
+            sqlinterface.Insert();
         }
     }
 }
