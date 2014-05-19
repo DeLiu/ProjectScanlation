@@ -33,22 +33,36 @@ namespace Server_App
                                                           Integrated Security=True");
 
             conn.Open();
-            String query = "INSERT INTO Customer (Firstname,Adress) VALUES(@Firstname, @Adress)";
+            String query = "INSERT INTO Customer(Firstname,Adress) VALUES(@Firstname, @Adress)";
 
             SqlCommand command = new SqlCommand(query, conn);
-            command.Parameters.AddWithValue("@Firstname", SqlDbType.NChar);
-            command.Parameters["@Firstname"].Value = "John";
-            
+            command.Parameters.Add("@Firstname", SqlDbType.NChar);
+            command.Parameters["@Firstname"].Value = "Michael";
+            command.Parameters.Add("@Adress", SqlDbType.NChar);
+            command.Parameters["@Adress"].Value = "Odense";
 
-            command.Parameters.AddWithValue("@Adress", SqlDbType.NChar);
-            command.Parameters["@Adress"].Value = "Ladegårdsparken";
-           
             command.ExecuteNonQuery();
-            
-        }
-    
-          
 
+        }
+        public void Update()
+        {
+            SqlConnection conn = new SqlConnection(@"Data Source=ACER\SQLEXPRESS;Initial Catalog=testdb;     
+                                                          Integrated Security=True");
+            conn.Open();
+
+            SqlCommand cmd = new SqlCommand("UPDATE Customer SET Firstname = @Firstname, Adress=@Adress Where ID=3", conn);
+            cmd.Parameters.AddWithValue("@Firstname", "Kaj");
+            cmd.Parameters.AddWithValue("@Adress", "Århus");
+
+            int row = cmd.ExecuteNonQuery();
+
+        }
+    }
+}
+            
+    
+
+      
 
 
 
