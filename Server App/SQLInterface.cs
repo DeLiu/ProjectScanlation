@@ -50,26 +50,15 @@ namespace Server_App
                                                           Integrated Security=True");
             conn.Open();
 
-            SqlCommand cmd = new SqlCommand("UPDATE Customer SET Firstname = @Firstname, Adress=@Adress Where ID=3", conn);
-            cmd.Parameters.AddWithValue("@Firstname", "Kaj");
-            cmd.Parameters.AddWithValue("@Adress", "Århus");
+            SqlCommand cmd = new SqlCommand("UPDATE Customer SET Firstname = @Firstname, Adress=@Adress Where ID=2", conn);
+            cmd.Parameters.AddWithValue("@Firstname", "Jonas");
+            cmd.Parameters.AddWithValue("@Adress", "Nørreport");
 
-            int row = cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
         }
     }
 }
-            
-    
-
-      
-
-
-
-
-
-
-           
 
 
        

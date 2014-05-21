@@ -12,11 +12,22 @@ namespace Server_App
         static void Main(string[] args)
         {
 
-            SQLInterface sqlInterface = new SQLInterface();
-            sqlInterface.SelectData();
-            sqlInterface.Insert();
-            sqlInterface.Update();
+            SQLInterface sqlinterface = new SQLInterface();
+            sqlinterface.SelectData();
+            sqlinterface.Insert();
+            sqlinterface.Update();
+            CheckKlient ck = new CheckKlient();
+            ck.ValidateUserInfo("Junas65", "Theundertaker");
+            ck.ValidateUserInfo("Maria76", "Mrjuicy");
+
+           
+
          
+            
+            
         }
+
     }
-}
+}   
+          
+            
